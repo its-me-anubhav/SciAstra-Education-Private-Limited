@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciAstra Blog and Courses</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>SciAstra Education Private Limited</h1>
+        <nav id="head">
+            <a href="#courses">Courses</a>
+            <a href="#blog">Blog</a>
+        </nav>
+        <div>
+            <p id="address">SciAstra, 401, C-76, Sector 63, Near Police Station, Noida, 201301</p>
+        </div>
+    </header>
+
+    <!-- Dynamic Homepage Section -->
+    <section id="courses">
+        <h2>Discounted Courses</h2>
+        <div id="course-list"></div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <h2>Recent Blogs</h2>
+        <div id="blog-list"></div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment">
+        <h2>Payment for Course</h2>
+        <form id="payment-form">
+            <label>Payment Method:</label>
+            <select id="payment-method">
+                <option value="credit_card">Credit Card</option>
+                <option value="debit_card">Debit Card</option>
+                <option value="upi">UPI</option>
+            </select>
+
+            <div>
+                <label>Card/UPI Details:</label>
+                <input type="text" required>
+            </div>
+
+            <button type="button" onclick="initiatePayment()">Pay Now</button>
+        </form>
+
+        <div id="verification-section" style="display:none;">
+            <h2>Enter Verification Code</h2>
+            <input type="text" id="verification-code" placeholder="Enter Code" required>
+            <button onclick="verifyCode()">Verify</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 SciAstra Education Private Limited</p>
+    </footer>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Placeholder data for courses and blog posts
+    const courses = [
+        { title: '<a href="https://courses.sciastra.com/courses/533437?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp/"target=_blank">Internship Workshop 2024 - 25</a>', discount: "40%" },
+        { title: '<a href="https://courses.sciastra.com/courses/481249?utm_source%3Dother%26utm_medium%3Dtutor-course-referral%26utm_campaign%3Dcourse-overview-webapp/"target=_blank">HOMI Batch 2026 </a>', discount: "30%" },
+    ];
+
+    const blogs = [
+        { title: '<a href="https://www.sciastra.com/blog/how-to-join-nasa-as-an-astrobiologist-step-by-step-career-guide/" target="_blank">How to join NASA as an Astrologer</a>', publishDate: "06-11-2024" },
+        { title: ' <a href="https://www.sciastra.com/blog/can-i-prepare-for-iat-and-boards-together/" target="_blank">Can i prepare for IAT and Boards together</a>', publishDate: "02-11-2024" },
+    ];
+
+    // Display courses
+    const courseList = document.getElementById("course-list");
+    courses.forEach(course => {
+        const courseItem = document.createElement("div");
+        courseItem.innerHTML = `<h3>${course.title}</h3><p>Discount: ${course.discount}</p>`;
+        courseList.appendChild(courseItem);
+    });
+
+    // Display blogs
+    const blogList = document.getElementById("blog-list");
+    blogs.forEach(blog => {
+        const blogItem = document.createElement("div");
+        blogItem.innerHTML = `<h3>${blog.title}</h3><p>Publish Date: ${blog.publishDate}</p>`;
+        blogList.appendChild(blogItem);
+    });
+});
+
+function initiatePayment() {
+    const paymentMethod = document.getElementById("payment-method").value;
+    const paymentDetails = document.getElementById("payment-details").value;
+
+    if (paymentDetails.trim() === "") {
+        alert("Please enter payment details.");
+        return;
+    }
+
+    // Placeholder: Generate a random verification code and display verification section
+    const verificationCode = Math.floor(1000 + Math.random() * 9000); // Random 4-digit code
+    localStorage.setItem("verificationCode", verificationCode);
+    alert(`Verification code sent: ${verificationCode}`);
+    document.getElementById("payment-form").style.display = "none";
+    document.getElementById("verification-section").style.display = "block";
+}
+
+function verifyCode() {
+    const enteredCode = document.getElementById("verification-code").value;
+    const storedCode = localStorage.getItem("verificationCode");
+
+    if (enteredCode === storedCode) {
+        alert("Payment successful!");
+        localStorage.removeItem("verificationCode");
+        // Redirect to a success page or perform other success actions
+        window.location.href = "success.html";
+    } else {
+        alert("Incorrect verification code. Please try again.");
+    }
+}
+</script>
