@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.8;
+}
+header {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+header nav a {
+    color: #fff;
+    text-align: center;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.5s;
+    font-size: 20px;
+}
+header nav a:hover {
+    color: black;
+}
+#address {
+   text-align: right;
+}
+#head{
+    text-align: center;
+}
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #0077b6;
+    padding-bottom: 5px;
+}
+#course-list, #blog-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+#course-list div, #blog-list div {
+    background-color: #fff;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+}
+#course-list div:hover, #blog-list div:hover {
+    transform: translateY(-5px);
+}
+#course-list h3, #blog-list h3 {
+    color: #0077b6;
+}
+#blog-list h3 a{
+    color: #0077b6;
+    text-decoration: none;
+}
+#course-list h3 a{
+    color: #0077b6;
+    text-decoration: none;
+}
+/* Payment Form Styling */
+#payment-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+#payment-method{
+    cursor: pointer;
+}
+#payment-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+#payment-form select, #payment-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+#payment-form button {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#payment-form button:hover {
+    background-color: #005f87;
+}
+/* Verification Section */
+#verification-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+/* Footer Styling */
+footer {
+    background-color: #0077b6;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
